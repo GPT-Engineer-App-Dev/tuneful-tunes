@@ -1,8 +1,10 @@
-import { Box, Container, Flex, Heading, HStack, VStack, Text, Link, Image } from "@chakra-ui/react";
-import { NavLink } from "react-router-dom";
+import { Box, Container, Flex, Heading, HStack, VStack, Text, Link, Image, Button } from "@chakra-ui/react";
+import { NavLink, useNavigate } from "react-router-dom";
 import { FaHome, FaMusic, FaBook, FaUser } from "react-icons/fa";
 
 const Index = () => {
+  const navigate = useNavigate();
+
   return (
     <Container maxW="container.xl" p={0}>
       {/* Navigation Bar */}
@@ -40,7 +42,10 @@ const Index = () => {
 
       {/* Main Section */}
       <Box as="main" p={4}>
-        <Heading size="lg" mb={4}>Featured Playlists</Heading>
+        <Flex justifyContent="space-between" alignItems="center" mb={4}>
+          <Heading size="lg">Featured Playlists</Heading>
+          <Button colorScheme="blue" onClick={() => navigate("/create-playlist")}>Create Playlist</Button>
+        </Flex>
         <Flex wrap="wrap" justifyContent="space-around">
           {/* Example Playlist */}
           <Box bg="gray.700" color="white" p={4} m={2} borderRadius="md" width="200px">
